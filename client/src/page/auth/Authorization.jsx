@@ -47,7 +47,7 @@ try {
 
   return (
     <div>
-      <h1>Вход</h1>
+      <h1>LogIn</h1>
       <form className='auth' onSubmit={onHadleSubmit}>
         <label htmlFor='email'>
           <input
@@ -66,7 +66,7 @@ try {
           />
         </label>
         <span>{error && <p>{error}</p>}</span>
-        <button>Войти</button>
+        <button>GO</button>
       </form>
     </div>
   );

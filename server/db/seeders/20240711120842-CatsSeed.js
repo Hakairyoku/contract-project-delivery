@@ -4,101 +4,98 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     
-     await queryInterface.bulkInsert('People', [
+     await queryInterface.bulkInsert('Cat', [
       {
-        "name": "Mystic Whiskers",
+        "name": "Мистик Усатик",
         "class": "intuition",
-        "img": "",
-        "place": "Enchanted Forest",
-        "price": 100
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/4kogyDO7qPJW",
+        "place": "Волшебный лес",
+        "price": 1
     },
     {
-        "name": "Shadow Paws",
+        "name": "Теневой лапка",
         "class": "dark",
-        "img": "",
-        "place": "Shadow Realm",
-        "price": 150
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/4pom13MKboZL",
+        "place": "Мир теней",
+        "price": 1
     },
     {
-        "name": "Flame Tail",
+        "name": "Огненный хвост",
         "class": "fire",
-        "img": "",
-        "place": "Volcanic Cavern",
-        "price": 120
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/WVo1bRvMZN1X",
+        "place": "Вылканическая пещера",
+        "price": 1
     },
     {
-        "name": "Aqua Fur",
+        "name": "Морской Пушистик",
         "class": "water",
-        "img": "",
-        "place": "Mystic Lake",
-        "price": 110
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/B0NyKGMpd8GO",
+        "place": "Мистическое озеро",
+        "price": 1
     },
     {
-        "name": "Star Gaze",
+        "name": "Звездный взор",
         "class": "intuition",
-        "img": "",
-        "place": "Celestial Peak",
-        "price": 200
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/bONObYQygo6K",
+        "place": "Небесная вершина",
+        "price": 2
     },
     {
-        "name": "Lunar Claw",
+        "name": "Лунный коготь",
         "class": "dark",
-        "img": "",
-        "place": "Moonlit Grove",
-        "price": 130
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/B0NyKG90D8GO",
+        "place": "Лунная роща",
+        "price": 2
     },
     {
-        "name": "Blaze Stripe",
+        "name": "Острие пламени",
         "class": "fire",
-        "img": "",
-        "place": "Sunset Valley",
-        "price": 140
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/VdNWGJXZxNZb",
+        "place": "Долина Заката",
+        "price": 2
     },
     {
-        "name": "Ripple Paw",
+        "name": "Рябушка",
         "class": "water",
-        "img": "",
-        "place": "Crystal Lagoon",
-        "price": 115
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/51NLepgQzPkw",
+        "place": "Кристальная лагуна",
+        "price": 2
     },
     {
-        "name": "Ember Glow",
+        "name": "Жаркий светлячок",
         "class": "fire",
-        "img": "",
-        "place": "Smoldering Peaks",
-        "price": 125
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/XDPApmbV4Nlw",
+        "place": "Дымящиеся пики",
+        "price": 3
     },
     {
-        "name": "Eclipse Eye",
+        "name": "Темный Мур",
         "class": "dark",
-        "img": "",
-        "place": "Eclipse Hollow",
-        "price": 160
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/Y6PxrYQDgolq",
+        "place": "Пещера затмения",
+        "price": 3
     },
     {
-        "name": "Glimmer Fur",
+        "name": "Мерцающий Мяу",
         "class": "intuition",
-        "img": "",
-        "place": "Starlit Glade",
-        "price": 135
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/WVo1bRqkpN1X",
+        "place": "Лабиринт сакуры",
+        "price": 3
     },
     {
-        "name": "Ocean Breeze",
+        "name": "Миракл",
         "class": "water",
-        "img": "",
-        "place": "Seafoam Cove",
-        "price": 145
+        "img": "https://api.neuro-holst.ru/api/v1/image/share/render/5DopyM4bvNO3",
+        "place": "Малахитовая бухта",
+        "price": 3
     }
      ], {});
     
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+   
+     await queryInterface.bulkDelete('Cat', null, {});
+     
   }
 };

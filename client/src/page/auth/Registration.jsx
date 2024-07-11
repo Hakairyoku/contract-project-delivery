@@ -10,6 +10,7 @@ function Registration({setUser}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cpassword, setCPassword] = useState('');
+  const [role, setRole] = useState(false)
 
   function validation(name, email, password) {
     if (name.trim() === '' || email.trim() === '' || password.trim() === ''|| cpassword.trim() === '') {
@@ -26,7 +27,7 @@ function Registration({setUser}) {
   const onHandleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validation(name, email, password, cpassword)) {
+    if (!validation(name, email, password, cpassword, role)) {
       return;
     }
 
@@ -36,6 +37,7 @@ function Registration({setUser}) {
         name,
         email,
         password,
+        role,
       });
       console.log(data);
         if (data.message === 'success') {
@@ -55,7 +57,7 @@ setUser(data.user);
 
   return (
     <div>
-      <h1>Регистрация</h1>
+      <h1>RegIn</h1>
       <form className='auth' onSubmit={onHandleSubmit}>
         <label htmlFor='name'>
           <input
@@ -95,7 +97,7 @@ setUser(data.user);
         </label>
         <span>{error && <p>{error}</p>}</span>
         <button>
-          Зарегистрироваться
+          GO
         </button>
       </form>
     </div>

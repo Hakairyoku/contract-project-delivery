@@ -4,13 +4,16 @@ import { useNavigate } from 'react-router-dom';
 import { setAccessToken } from '../../services/axios';
 
 function Registration({setUser}) {
-  const navigate = useNavigate();
+  
   const [error, setError] = useState(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cpassword, setCPassword] = useState('');
   const [role, setRole] = useState(false)
+  const [sausage, setSausage] = useState(100)
+  const navigate = useNavigate();
+  console.log(role);
 
   function validation(name, email, password) {
     if (name.trim() === '' || email.trim() === '' || password.trim() === ''|| cpassword.trim() === '') {
@@ -31,6 +34,8 @@ function Registration({setUser}) {
       return;
     }
 
+    if(role) {setSausage(1)}
+
     try {
 
       const { data } = await requestAxios.post('/auth/registration', {
@@ -38,21 +43,25 @@ function Registration({setUser}) {
         email,
         password,
         role,
+        sausage,
       });
-      console.log(data);
-        if (data.message === 'success') {
+      console.log(111, data);
 
+        if (data.message === 'success') {
+console.log(222);
+navigate('/Authorization');
           setAccessToken(data.accessToken);
 setUser(data.user);
-          navigate('/');
+
           return;
         }
       
     } catch (message) {
-      console.log(message.response.data.message);
+      
       setError(message.response.data.message); 
       console.log(message);
     }
+    
   };
 
   return (
@@ -95,8 +104,15 @@ setUser(data.user);
             onChange={(e) => setCPassword(e.target.value)}
           />
         </label>
+        <label htmlFor='role'>
+        <select name="select" onChange={(e) => setRole(e.target.value)}>
+        <option value={false} selected>volshebnick</option>
+        <option value={true}>hunter</option>
+
+        </select>
+        </label>
         <span>{error && <p>{error}</p>}</span>
-        <button>
+        <button type='submit'>
           GO
         </button>
       </form>

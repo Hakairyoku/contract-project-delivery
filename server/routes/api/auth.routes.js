@@ -6,7 +6,7 @@ const jwtConfig = require('../../config/jwtConfig');
 
 router.post('/registration', async (req, res) => {
   try {
-    const { email, name, password } = req.body;
+    const { email, name, password, role, sausage } = req.body;
 
     if (name.trim() === '' || email.trim() === '' || password.trim() === '') {
       res.status(400).json({ message: 'заполните все поля' });
@@ -24,7 +24,7 @@ router.post('/registration', async (req, res) => {
       return;
     }
     const hashPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({ name, email, password: hashPassword });
+    const user = await User.create({ email, name, role, sausage, password: hashPassword });
 
     delete user.dataValues.password;
     

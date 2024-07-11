@@ -23,9 +23,8 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', verifyAccessToken, async (req, res) => {
     try {
-        const { user } = res.locals;
-        const { name, class, img, place, price } = req.body;
-        const cat = await Cat.create({ name, class, img, place, price });
+        const { name, catClass, img, place, price } = req.body;
+        const cat = await Cat.create({ name, catClass, img, place, price });
         if (cat) {
             res.status(200).json({ message: 'success', cat });
             return;
@@ -39,8 +38,8 @@ router.post('/', verifyAccessToken, async (req, res) => {
 router.put('/:id', verifyAccessToken, async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, class, img, place, price } = req.body;
-        const result = await Cat.update({ name, class, img, place, price });
+        const { name, catClass, img, place, price } = req.body;
+        const result = await Cat.update({ name, catClass, img, place, price });
         if (result[0] > 0) {
             const cat = await Cat.findOne({ where: { id: id } });
             res.status(200).json({ message: 'success', cat });

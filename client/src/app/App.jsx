@@ -1,14 +1,12 @@
-import { useState } from 'react'
+import React from 'react'
+import { Link, Route, Routes, Outlet } from "react-router-dom";
+
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    
-      <h1>Vite + React</h1>
-      
-  )
+  return 
 }
 
 export default App

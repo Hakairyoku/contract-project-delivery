@@ -7,9 +7,20 @@ import Authorization from '../page/auth/Authorization';
 import './App.css'
 
 function App() {
+  return (
+    <div>
 
-  
-  return 
+      <Routes>
+       
+          <Route path="/Registration" element={<Registration />} />
+          <Route path="/Authorization" element={<Authorization />} /> 
+          {/* <Route path='*' element={<ErrorPage />} /> */}
+       
+      </Routes>
+
+      <div className='container'><Outlet /></div>
+    </div>
+  )
 }
 
 export default App

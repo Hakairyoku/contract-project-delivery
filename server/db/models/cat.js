@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING
     },
-    class: {
+    catClass: {
       type: DataTypes.STRING
     },
     img: {

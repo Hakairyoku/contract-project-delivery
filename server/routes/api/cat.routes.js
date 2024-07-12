@@ -2,15 +2,17 @@ const router = require('express').Router();
 const { Cat } = require('../../db/models');
 const verifyAccessToken = require('../../middleware/verifyAccessToken');
 
-// router.get('/user/:id', async (req, res) => {
-//     try {
-//         const { id } = req.params;
-//         const cats = await Cat.findAll({ where: { userId: id } });
-//         res.status(200).json({ message: 'success', cats });
-//     } catch ({ message }) {
-//         res.status(500).json({ error: message })
-//     }
-// });
+router.get('/user/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const cats = await Cat.findAll({ where: { userId: id } });
+        res.status(200).json({ message: 'success', cats });
+    } catch ({ message }) {
+        res.status(500).json({ error: message })
+    }
+});
+
+
 router.get('/', async (req, res) => {
     try {
         const cats = await Cat.findAll({where: {userId:1}});

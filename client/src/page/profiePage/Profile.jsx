@@ -1,7 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import requestAxios from '../../services/axios';
 
 function Profile({ user }) {
+
+  const [cats, setCats] = useState([]);
+
+  const axiosCats = async () => {
+    const { data } = await requestAxios.get(`/cats/user/${user.id}`);
+    if (data.message === 'success') {
+        setCats(data.cats);
+        console.log(data.cats);
+    }
+  };
+
+
+  useEffect(() => {
+    
+      axiosCats()
+   
+  
+  }, [user]);
 
   const role = user.role ? 'hunter' : 'mage';
 
@@ -29,7 +48,20 @@ function Profile({ user }) {
         {role === 'hunter' && <Link to="/targets">Котики на заказ</Link>}
       </div>
       <div>
-        
+      <div>
+      <h1>My Cats</h1>
+      <div>
+        {cats&& cats.map(cat => (
+          <div key={cat.id}>
+            <img src={cat.img} alt={cat.name} />
+            <h2>{cat.name}</h2>
+            <p>Class: {cat.catClass}</p>
+            <p>Place: {cat.place}</p>
+            <p>Sausage: {cat.price}</p>
+          </div>
+        ))}
+      </div>
+    </div>
       </div>
     </div>
   );

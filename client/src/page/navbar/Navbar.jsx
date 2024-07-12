@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import requestAxios, { setAccessToken } from '../../services/axios';
-
+import './Navbar.css';
 
 function Navbar({ user, setUser }) {
   const navigate = useNavigate();
@@ -17,37 +17,36 @@ function Navbar({ user, setUser }) {
 
   return (
     <nav>
-      <NavLink to='/' end>
-    Главная
+      <NavLink to='/' end className='nav-link'>
+        Главная
       </NavLink>
       {user && (
-        <NavLink to='/profile'>
+        <NavLink to='/profile' className='nav-link'>
           Профиль
         </NavLink>
       )}
       {user ? (
-        <div>
-          <p >{`${user.name}`}</p>
-
-          <button onClick={onHandleLogout}>
+        <div className='user-container'>
+          <p className='user-name'>{`${user.name}`}</p>
+          <button
+            onClick={onHandleLogout}
+            className='logout-button'
+          >
             Выход
           </button>
         </div>
       ) : (
-        <div>
-             <NavLink to='/authorization'>
+        <div className='user-container'>
+          <NavLink to='/authorization' className='nav-link'>
             Вход
           </NavLink>
-          <n> </n>
-          
-
-          <NavLink to='/registration'>
+          <NavLink to='/registration' className='nav-link'>
             Регистрация
           </NavLink>
-         
         </div>
       )}
     </nav>
   );
 }
+
 export default Navbar;

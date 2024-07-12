@@ -5,6 +5,7 @@ import requestAxios from '../../services/axios';
 function Profile({ user }) {
 
   const [cats, setCats] = useState([]);
+  const [role, setRole] = useState('mage');
 
   const axiosCats = async () => {
     const { data } = await requestAxios.get(`/cats/user/${user.id}`);
@@ -18,11 +19,14 @@ function Profile({ user }) {
   useEffect(() => {
     
       axiosCats()
+if(user?.role){
+  setRole('hunter')
+}
    
   
   }, [user]);
 
-  const role = user.role ? 'hunter' : 'mage';
+
 
   return (
     <div>

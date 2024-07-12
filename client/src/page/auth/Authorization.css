@@ -1,0 +1,53 @@
+.auth {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .auth label {
+    margin-bottom: 10px;
+  }
+  
+  .auth input[type='email'],
+  .auth input[type='password'] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.6rem;
+    border: 1px solid #8fbc8f; /* Light green border */
+    border-radius: 5px;
+    background-color: #1f3d2a; /* Dark green background */
+    color: #8fbc8f; /* Light green text color */
+    margin-top: 5px;
+  }
+  
+  .auth input[type='submit'] {
+    background-color: #8fbc8f; /* Light green button */
+    color: #1f3d2a; /* Dark green text color */
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-size: 1.6rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .auth input[type='submit']:hover {
+    background-color: #6b966d; /* Darker green on hover */
+    color: #fff; /* White text color on hover */
+  }
+  
+  .auth p {
+    color: #ff69b4; /* Mystical pink error text color */
+    font-size: 1.4rem;
+    margin-top: 5px;
+  }
+  
+  .auth h1 {
+    text-align: center;
+    color: #8fbc8f; /* Light green header text color */
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+  }
+  

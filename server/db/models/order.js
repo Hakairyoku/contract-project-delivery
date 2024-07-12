@@ -11,7 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ User, Cat }) {
       this.belongsTo(User, { foreignKey: 'userId' })
-      this.belongsTo(User, { foreignKey: 'hunterId' })
       this.belongsTo(Cat, { foreignKey: 'catId'})
     }
   }
@@ -32,17 +31,6 @@ module.exports = (sequelize, DataTypes) => {
       },
       onDelete: "CASCADE"
     },
-    status: {
-      type: DataTypes.BOOLEAN
-    },
-    hunterId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "Users",
-        key: "id"
-      },
-      onDelete: "CASCADE"
-    }
   }, {
     sequelize,
     modelName: 'Order',

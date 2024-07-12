@@ -43,5 +43,3 @@ function Cats({user}) {
     </div>
   );
 }
-
-export default Cats;

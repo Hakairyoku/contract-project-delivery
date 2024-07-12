@@ -5,7 +5,10 @@ import './Profile.css';
 
 function Profile({ user }) {
   const [cats, setCats] = useState([]);
-  const [sausage, setSausage] = useState(100); // Начальное значение 100
+
+  const [role, setRole] = useState('mage');
+
+
 
   useEffect(() => {
     // Загрузка данных о котах
@@ -22,14 +25,19 @@ function Profile({ user }) {
 
     fetchCats();
 
-    // Загрузка количества сосисок из localStorage
-    const savedSausage = localStorage.getItem('sausage');
-    if (savedSausage) {
-      setSausage(parseInt(savedSausage));
-    }
+
+  useEffect(() => {
+    
+      axiosCats()
+if(user?.role){
+  setRole('hunter')
+}
+   
+  
   }, [user]);
 
-  const role = user.role ? 'Охотник' : 'Волшебник';
+
+
 
   return (
     <div>

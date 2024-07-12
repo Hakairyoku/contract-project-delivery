@@ -36,11 +36,11 @@ function Navbar({ user, setUser }) {
       ) : (
         <div>
              <NavLink to='/authorization'>
-            Войти
+            LogIn
           </NavLink>
 
           <NavLink to='/registration'>
-            Зарегистрироваться
+            SignUp
           </NavLink>
          
         </div>

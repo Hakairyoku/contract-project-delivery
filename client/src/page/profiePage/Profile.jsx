@@ -2,11 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Profile({ user }) {
-  if (!user) {
-    return <div>Loading...</div>;
-  }
 
-  // Преобразование булевых значений роли
   const role = user.role ? 'hunter' : 'mage';
 
   return (

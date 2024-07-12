@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import requestAxios from '../../services/axios';
 import './Profile.css';
@@ -6,34 +6,27 @@ import './Profile.css';
 function Profile({ user }) {
   const [cats, setCats] = useState([]);
 
-  const [role, setRole] = useState('mage');
+  const [role, setRole] = useState('');
 
-
-
-  useEffect(() => {
-    // Загрузка данных о котах
-    const fetchCats = async () => {
-      try {
-        const { data } = await requestAxios.get(`/cats/user/${user.id}`);
-        if (data.message === 'success') {
-          setCats(data.cats);
-        }
-      } catch (error) {
-        console.error('Error fetching cats:', error);
+  const fetchCats = async () => {
+    try {
+      const { data } = await requestAxios.get(`/cats/user/${user.id}`);
+      if (data.message === 'success') {
+        setCats(data.cats);
       }
-    };
-
-    fetchCats();
+    } catch (error) {
+      console.error('Error fetching cats:', error);
+    }
+  };
 
 
   useEffect(() => {
-    
-      axiosCats()
-if(user?.role){
-  setRole('hunter')
-}
-   
-  
+    fetchCats();
+    if (user?.role) {
+      setRole(user.role)
+    }
+
+
   }, [user]);
 
 
@@ -54,7 +47,7 @@ if(user?.role){
           </tr>
           <tr>
             <td>Сосиски:</td>
-            <td>{sausage}</td>
+            {/* <td>{sausage}</td> */}
           </tr>
         </tbody>
       </table>
@@ -77,7 +70,7 @@ if(user?.role){
 
       </div>
     </div>
-  );
+  )
 }
 
 export default Profile;

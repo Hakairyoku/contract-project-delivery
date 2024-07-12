@@ -18,11 +18,11 @@ function Navbar({ user, setUser }) {
   return (
     <nav>
       <NavLink to='/' end>
-    Main
+    Главная
       </NavLink>
       {user && (
         <NavLink to='/profile'>
-          Profile
+          Профиль
         </NavLink>
       )}
       {user ? (
@@ -30,17 +30,19 @@ function Navbar({ user, setUser }) {
           <p >{`${user.name}`}</p>
 
           <button onClick={onHandleLogout}>
-            LogOut
+            Выход
           </button>
         </div>
       ) : (
         <div>
              <NavLink to='/authorization'>
-            LogIn
+            Вход
           </NavLink>
+          <n> </n>
+          
 
           <NavLink to='/registration'>
-            SignUp
+            Регистрация
           </NavLink>
          
         </div>

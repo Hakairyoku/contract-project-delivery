@@ -1,7 +1,7 @@
 function ErrorPage() {
     return (
       <div id="error-page">
-        <h1 className="error">404</h1>
+        <h1 className="error">404 - котики не найдены</h1>
       </div>
     );
   }

@@ -42,12 +42,12 @@ function Authorization({ setUser }) {
 
   return (
     <div>
-      <h1>LogIn</h1>
+      <h1></h1>
       <form className='auth' onSubmit={onHadleSubmit}>
         <label htmlFor='email'>
           <input
             type='email'
-            placeholder='kat@mail.ru'
+            placeholder='sweetCat@magic.wow'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -61,7 +61,7 @@ function Authorization({ setUser }) {
           />
         </label>
         <span>{error && <p>{error}</p>}</span>
-        <button type="submit">GO</button>
+        <button type="submit">Поймать котика!</button>
       </form>
     </div>
   );

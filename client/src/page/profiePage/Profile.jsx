@@ -7,26 +7,26 @@ function Profile({ user }) {
 
   return (
     <div>
-      <h1>Profile</h1>
+      <h1>Профиль</h1>
       <table>
         <tbody>
           <tr>
-            <td>Name:</td>
+            <td>Имя:</td>
             <td>{user.name}</td>
           </tr>
           <tr>
-            <td>Role:</td>
+            <td>Роль:</td>
             <td>{role}</td>
           </tr>
           <tr>
-            <td>Sausage:</td>
+            <td>Сосиски:</td>
             <td>{user.sausage}</td>
           </tr>
         </tbody>
       </table>
       <div>
-        {role === 'mage' && <Link to="/cats">Cats Page</Link>}
-        {role === 'hunter' && <Link to="/targets">Targets Page</Link>}
+        {role === 'mage' && <Link to="/cats">Котики</Link>}
+        {role === 'hunter' && <Link to="/targets">Котики на заказ</Link>}
       </div>
     </div>
   );

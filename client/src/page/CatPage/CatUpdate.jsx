@@ -3,8 +3,9 @@ import requestAxios from '../../services/axios';
 import { useParams } from 'react-router-dom';
 import "./CatUpdate.css"
 
-function UpdateCat({ cat, setCats, setIsUpdate }) {
+function UpdateCat({ cat, setCats }) {
     const [catId, setCatId] = useState(1)
+    const [isUpdate, setIsUpdate] = useState(false)
 
     const handleUpd = async (event) => {
         event.preventDefault();

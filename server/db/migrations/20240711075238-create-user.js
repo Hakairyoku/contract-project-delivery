@@ -21,8 +21,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       role: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false
+        type: Sequelize.TEXT,
+        defaultValue: ""
       },
       sausage: {
         type: Sequelize.INTEGER

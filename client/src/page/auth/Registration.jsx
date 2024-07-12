@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { setAccessToken } from '../../services/axios';
+import requestAxios, { setAccessToken } from '../../services/axios';
 import "./Registration.css"
 
 
@@ -13,7 +13,7 @@ function Registration({ setUser }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cpassword, setCPassword] = useState('');
-  const [role, setRole] = useState(false);
+  const [role, setRole] = useState("Волшебник");
   const [sausage, setSausage] = useState(100); // Начальное значение 100
 
   const navigate = useNavigate();
@@ -102,9 +102,11 @@ function Registration({ setUser }) {
         </label>
         <label htmlFor='role'>
           Роль:
-          <select value={role} onChange={(e) => setRole(e.target.value)}>
-            <option value={false}>Волшебник</option>
-            <option value={true}>Охотник</option>
+          <select value={role} onChange={(e) => {
+          console.log(e.target.value)
+          setRole(e.target.value)}}>
+            <option value={"Волшебник"}>Волшебник</option>
+            <option value={"Охотник"}>Охотник</option>
           </select>
         </label>
         <span>{error && <p>{error}</p>}</span>

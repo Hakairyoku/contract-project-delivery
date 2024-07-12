@@ -1,44 +1,43 @@
-import { useState } from 'react';
-import requestAxios from '../../services/axios';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { setAccessToken } from '../../services/axios';
 import "./Registration.css"
 
-function Registration({setUser}) {
-  
+
+
+
+function Registration({ setUser }) {
   const [error, setError] = useState(null);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cpassword, setCPassword] = useState('');
-  const [role, setRole] = useState(false)
-  const [sausage, setSausage] = useState(100)
-  const navigate = useNavigate();
-  console.log(role);
+  const [role, setRole] = useState(false);
+  const [sausage, setSausage] = useState(100); // Начальное значение 100
 
-  function validation(name, email, password) {
-    if (name.trim() === '' || email.trim() === '' || password.trim() === ''|| cpassword.trim() === '') {
-      setError('Заполните поле');
+  const navigate = useNavigate();
+
+  const validation = (name, email, password) => {
+    if (name.trim() === '' || email.trim() === '' || password.trim() === '' || cpassword.trim() === '') {
+      setError('Заполните все поля');
       return false;
     }
-    if (password.trim() !== cpassword.trim()) {
+    if (password !== cpassword) {
       setError('Пароли не совпадают');
       return false;
     }
     return true;
-  }
+  };
 
-  const onHandleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validation(name, email, password, cpassword, role)) {
+    if (!validation(name, email, password)) {
       return;
     }
 
-    if(role) {setSausage(10)}
-
     try {
-
       const { data } = await requestAxios.post('/auth/registration', {
         name,
         email,
@@ -46,80 +45,73 @@ function Registration({setUser}) {
         role,
         sausage,
       });
-      console.log(111, data);
 
-        if (data.message === 'success') {
-console.log(222);
-navigate('/profile');
-          setAccessToken(data.accessToken);
-setUser(data.user);
+      if (data.message === 'success') {
+        setAccessToken(data.accessToken);
+        setUser(data.user);
 
-          return;
-        }
-      
-    } catch (message) {
-      
-      setError(message.response.data.message); 
-      console.log(message);
+        // Сохраняем количество сосисок в localStorage
+        localStorage.setItem('sausage', sausage.toString());
+
+        navigate('/profile');
+      }
+    } catch (error) {
+      setError(error.response?.data?.message || 'Что-то пошло не так');
     }
-    
   };
 
   return (
     <div>
       <h1>Регистрация</h1>
-      <form className='auth' onSubmit={onHandleSubmit}>
+      <form className='auth' onSubmit={handleSubmit}>
         <label htmlFor='name'>
+          Имя:
           <input
             type='text'
-            placeholder='name'
+            placeholder='Имя'
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </label>
         <label htmlFor='email'>
+          Email:
           <input
             type='email'
             placeholder='example@mail.ru'
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
-            minLength={5}
           />
         </label>
         <label htmlFor='password'>
+          Пароль:
           <input
             type='password'
-            placeholder='password'
+            placeholder='Пароль'
             value={password}
-            required
-            minLength={3}
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
-        <label htmlFor='password'>
+        <label htmlFor='cpassword'>
+          Повторите пароль:
           <input
             type='password'
-            placeholder='check password'
+            placeholder='Повторите пароль'
             value={cpassword}
             onChange={(e) => setCPassword(e.target.value)}
           />
         </label>
         <label htmlFor='role'>
-        <select name="select" onChange={(e) => setRole(e.target.value)}>
-        <option value={false} selected>Волшебник</option>
-        <option value={true}>Охотник</option>
-
-        </select>
+          Роль:
+          <select value={role} onChange={(e) => setRole(e.target.value)}>
+            <option value={false}>Волшебник</option>
+            <option value={true}>Охотник</option>
+          </select>
         </label>
         <span>{error && <p>{error}</p>}</span>
-        <button type='submit'>
-          Пошли ловить котика?
-        </button>
+        <button type='submit'>Зарегистрироваться</button>
       </form>
     </div>
   );
 }
-
 
 export default Registration;

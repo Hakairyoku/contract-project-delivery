@@ -1,0 +1,108 @@
+body {
+    background-color: #142a19; /* Dark green background */
+    color: #8fbc8f; /* Mystical light green */
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Whimsical font */
+    font-size: 1.6rem; /* Adjusted font size */
+    margin: 0;
+    overflow-y: scroll; /* Enable vertical scrolling */
+  }
+  
+  .profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ff69b4; /* Mystical pink */
+    font-size: 3rem; /* Larger font size for headings */
+    animation: pulse 2s infinite; /* Pulsing animation */
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  table {
+    width: 100%;
+    margin-bottom: 2rem;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  table td {
+    padding: 1rem;
+    border-bottom: 1px solid #8fbc8f; /* Light green border bottom */
+  }
+  
+  table td:first-child {
+    font-weight: bold;
+    width: 30%; /* Fixed width for table labels */
+  }
+  
+  .links-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .links-container a {
+    margin: 0 1rem;
+    padding: 1rem 2rem;
+    background-color: #1f3d2a; /* Darker green */
+    color: #8fbc8f; /* Light green text */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .links-container a:hover {
+    background-color: #274a35; /* Darker shade on hover */
+  }
+  
+  .wanted-cats {
+    margin-top: 4rem;
+  }
+  
+  .wanted-cats > div {
+    background-color: #1f3d2a; /* Darker green */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    margin-bottom: 2rem;
+  }
+  
+  .wanted-cats img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .wanted-cats div {
+    padding: 1rem;
+  }
+  
+  .wanted-cats h2 {
+    color: #8fbc8f; /* Light green */
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .wanted-cats p {
+    color: #8fbc8f; /* Light green */
+    font-size: 1.6rem;
+    margin-top: 0.5rem;
+  }
+  

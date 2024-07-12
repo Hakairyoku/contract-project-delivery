@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import requestAxios, { setAccessToken } from '../../services/axios';
+
+import { setAccessToken } from '../../services/axios';
+import "./Registration.css"
+
+
+
 
 function Registration({ setUser }) {
   const [error, setError] = useState(null);

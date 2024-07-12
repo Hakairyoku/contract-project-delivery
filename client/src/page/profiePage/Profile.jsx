@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import requestAxios from '../../services/axios';
+import './Profile.css';
 
 function Profile({ user }) {
   const [cats, setCats] = useState([]);
@@ -52,6 +53,7 @@ function Profile({ user }) {
       {role === 'Волшебник' && <Link to="/cats">Котики</Link>}
       {role === 'Охотник' && <Link to="/targets">Котики на заказ</Link>}
       <div>
+
         <h1>Мои котики</h1>
         <div>
           {cats.map(cat => (
@@ -64,6 +66,7 @@ function Profile({ user }) {
             </div>
           ))}
         </div>
+
       </div>
     </div>
   );

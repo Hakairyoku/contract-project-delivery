@@ -1,3 +1,17 @@
 body {
     background-image: url("https://i.pinimg.com/originals/fd/79/52/fd7952a7b3aa2fe508b3ed2ce65fe6c9.jpg");
+    
 }
+h2 {
+    text-align: center;
+    color: #f0f8ff; /* Light cyan color */
+    font-size: 3rem; /* Larger font size */
+    margin-top: 100px; /* Adjust as needed */
+    transition: transform 0.3s ease; /* Smooth transition for transform property */
+  }
+  
+  h2:hover {
+    transform: scale(1.2); /* Scale up by 10% on hover */
+  }
+  
+  

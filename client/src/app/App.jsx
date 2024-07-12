@@ -55,7 +55,7 @@ function App() {
        <Route path="/Registration" element={<Registration setUser={setUser} />} />
        <Route path="/profile" element={<Profile user={user}/>} />
        <Route path="/cats" element={<Cats user={user}/>} />
-       <Route path="/targets" element={<Targets />} />
+       <Route path="/targets" element={<Targets user={user}/>} />
 
        <Route path='*' element={<ErrorPage />} />
     

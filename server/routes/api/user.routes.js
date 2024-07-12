@@ -5,7 +5,7 @@ router.get('/', async (req, res) => {
   try {
    
     const users = await User.findAll();
-    res.status(200).cookie('coo', 'kie', {
+    res.status(200).cookie('Попа', 'Суслика', {
       maxAge: 9000,
       httpOnly: true,
     })

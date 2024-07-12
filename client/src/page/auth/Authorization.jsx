@@ -7,43 +7,38 @@ function Authorization({ setUser }) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
-  function validation(email, password ) {
+  const navigate = useNavigate();
+
+  const validation = (email, password) => {
     if (email.trim() === '' || password.trim() === '') {
       setError("Заполните поле");
       return false;
     }
     return true;
-  }
-
-  const navigate = useNavigate();
+  };
 
   const onHadleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validation(email, password)) {
       return;
-    } 
-try {
-    const { data } = await requestAxios.post('/auth/authorization', {
-      email,
-      password,
-    });
-    if (data.message === 'success') {
-      setUser(data.user);
-      setAccessToken(data.accessToken);
-      navigate('/');
-      return;
-    }  
-  } catch (message) {
-    console.log(message.response.data.message);
-    setError(message.response.data.message);
-    console.log(message);
-  }
+    }
 
-    
+    try {
+      const { data } = await requestAxios.post('/auth/authorization', {
+        email,
+        password,
+      });
+
+      if (data.message === 'success') {
+        setUser(data.user);
+        setAccessToken(data.accessToken);
+        navigate('/profile');
+      }
+    } catch (error) {
+      setError(error.response?.data?.message || 'Что-то пошло не так');
+    }
   };
-
-
 
   return (
     <div>
@@ -66,7 +61,7 @@ try {
           />
         </label>
         <span>{error && <p>{error}</p>}</span>
-        <button>GO</button>
+        <button type="submit">GO</button>
       </form>
     </div>
   );

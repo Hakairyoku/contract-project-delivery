@@ -1,27 +1,69 @@
-import React from 'react'
-import { Link, Route, Routes, Outlet } from "react-router-dom";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import MainPage from '../page/mainPage/MainPage';
+import Navbar from '../page/navbar/Navbar';
+import requestAxios from '../services/axios';
+import ErrorPage from '../page/ErrorPage/ErrorPage';
 import Registration from '../page/auth/Registration';
 import Authorization from '../page/auth/Authorization';
+import { setAccessToken } from '../services/axios';
+import Profile from '../page/profiePage/Profile';
+import Cats from '../page/CatPage/Cats';
+import Targets from '../page/targetPage/Targets';
 
 
-import './App.css'
+
+
+
 
 function App() {
-  
-  return (
-    <div>
 
+
+  const [user, setUser] = useState('');
+
+  const axiosUsers = async (id) => {
+    const { data } = await requestAxios.get(`/users/${id}`);
+      if (data.message === 'success') {
+      setUser(data.users);
+    }
+  };
+  const AxiosChekUser = async () => {
+    const { data } = await requestAxios.get('/tokens/refresh');
+    if (data.message === 'success') {
+      setUser(data.user);
+      setAccessToken(data.accessToken);
+    }
+  };
+
+  useEffect(() => {
+
+    AxiosChekUser();
+    axiosUsers();
+  }, []);
+
+  return (
+
+    <div>
+      <Navbar user={user} setUser={setUser} />
+      
       <Routes>
        
-          <Route path="/Registration" element={<Registration />} />
-          <Route path="/Authorization" element={<Authorization />} /> 
-          {/* <Route path='*' element={<ErrorPage />} /> */}
-       
-      </Routes>
+       <Route path="/" element={<MainPage />} />
+       <Route path="/Authorization" element={<Authorization setUser={setUser} />} />
+       <Route path="/Registration" element={<Registration />} />
+       <Route path="/profile" element={<Profile user={user}/>} />
+       <Route path="/cats" element={<Cats />} />
+       <Route path="/targets" element={<Targets />} />
 
-      <div className='container'><Outlet /></div>
-    </div>
+       <Route path='*' element={<ErrorPage />} />
+    
+   </Routes>
+
+ </div>
+
   )
 }
 
-export default App
+export default App;

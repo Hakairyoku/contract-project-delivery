@@ -6,6 +6,7 @@ const tokensRoutes = require('./api/tokens.routes')
 const catRoutes = require('./api/cat.routes')
 
 
+
 router.use('/cats', catRoutes)
 router.use('/auth', authRoutes);
 router.use('/users', userRoutes);

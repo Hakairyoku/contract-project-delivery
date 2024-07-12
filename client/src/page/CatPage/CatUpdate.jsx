@@ -19,7 +19,7 @@ function UpdateCat({ cat, setCats, setIsUpdate }) {
   return (
       <div>
         <form onSubmit={handleUpd}>
-          <button type='submit'>123</button>
+          <button type='submit'>HUNT this Cat</button>
           </form>
       </div>
   );

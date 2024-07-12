@@ -34,7 +34,7 @@ function Registration({setUser}) {
       return;
     }
 
-    if(role) {setSausage(1)}
+    if(role) {setSausage(10)}
 
     try {
 
@@ -49,7 +49,7 @@ function Registration({setUser}) {
 
         if (data.message === 'success') {
 console.log(222);
-navigate('/Authorization');
+navigate('/profile');
           setAccessToken(data.accessToken);
 setUser(data.user);
 

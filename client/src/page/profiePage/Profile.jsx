@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import requestAxios from '../../services/axios';
+import './Profile.css';
 
 function Profile({ user }) {
 
@@ -49,7 +50,7 @@ function Profile({ user }) {
       </div>
       <div>
       <div>
-      <h1>My Cats</h1>
+      <h1>Желанные котейки</h1>
       <div>
         {cats&& cats.map(cat => (
           <div key={cat.id}>

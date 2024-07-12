@@ -1,0 +1,16 @@
+button[type='submit'] {
+    background-color: #8fbc8f; /* Цвет фона кнопки */
+    color: #1f3d2a; /* Цвет текста кнопки */
+    font-size: 1.6rem; /* Размер шрифта */
+    padding: 0.8rem 1.5rem; /* Внутренние отступы */
+    border: none; /* Убираем границу */
+    border-radius: 8px; /* Закругляем углы */
+    cursor: pointer; /* Изменяем указатель при наведении */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавное изменение цветов */
+  }
+  
+  button[type='submit']:hover {
+    background-color: #1f3d2a; /* Цвет фона кнопки при наведении */
+    color: #8fbc8f; /* Цвет текста кнопки при наведении */
+  }
+  

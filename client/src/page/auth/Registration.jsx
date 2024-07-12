@@ -2,6 +2,7 @@ import { useState } from 'react';
 import requestAxios from '../../services/axios';
 import { useNavigate } from 'react-router-dom';
 import { setAccessToken } from '../../services/axios';
+import "./Registration.css"
 
 function Registration({setUser}) {
   

@@ -1,0 +1,47 @@
+.cats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* По 4 в ряд */
+    gap: 2rem; /* Отступ между карточками */
+  }
+  
+  .cat-card {
+    background-color: #1f3d2a; /* Цвет фона карточки */
+    border-radius: 15px; /* Закругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Тень */
+    overflow: hidden; /* Предотвращение переполнения */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    padding: 1rem; /* Внутренний отступ */
+    display: flex; /* Расположение элементов в строку */
+    flex-direction: column; /* Отображение дочерних элементов в столбец */
+  }
+  
+  .cat-card:hover {
+    transform: translateY(-5px); /* Немного поднимаем карточку при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Увеличиваем тень */
+  }
+  
+  .cat-card img {
+    width: 100%; /* Ширина изображения по размеру родительского контейнера */
+    height: auto; /* Автоматическая высота изображения */
+    max-height: 250px; /* Максимальная высота изображения */
+    object-fit: cover; /* Масштабирование изображения */
+    border-radius: 10px; /* Закругление углов рамки */
+    box-shadow: 0 0 0 5px #8fbc8f; /* Рамка вокруг изображения */
+  }
+  
+  .cat-card > div {
+    flex-grow: 1; /* Растягиваем контейнер с информацией */
+  }
+  
+  .cat-card h2 {
+    color: #8fbc8f; /* Цвет заголовка */
+    font-size: 1.8rem; /* Размер шрифта заголовка */
+    margin-top: 1rem; /* Верхний отступ */
+  }
+  
+  .cat-card p {
+    color: #8fbc8f; /* Цвет текста */
+    font-size: 1.4rem; /* Размер шрифта текста */
+    margin-top: 0.5rem; /* Верхний отступ */
+  }
+  

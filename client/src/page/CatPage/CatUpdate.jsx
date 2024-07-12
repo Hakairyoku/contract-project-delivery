@@ -1,6 +1,7 @@
 import React, { useState } from'react';
 import requestAxios from '../../services/axios';
 import { useParams } from 'react-router-dom';
+import "./CatUpdate.css"
 
 function UpdateCat({ cat, setCats, setIsUpdate }) {
     const [catId, setCatId] = useState(1)
@@ -19,7 +20,7 @@ function UpdateCat({ cat, setCats, setIsUpdate }) {
   return (
       <div>
         <form onSubmit={handleUpd}>
-          <button type='submit'>HUNT this Cat</button>
+          <button type='submit'>Поймать котика!</button>
           </form>
       </div>
   );

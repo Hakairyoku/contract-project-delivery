@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import requestAxios, { setAccessToken } from '../../services/axios';
+import { setAccessToken } from '../../services/axios';
 import "./Registration.css"
 
 
@@ -52,6 +52,7 @@ function Registration({ setUser }) {
 
         // Сохраняем количество сосисок в localStorage
         localStorage.setItem('sausage', sausage.toString());
+
         navigate('/profile');
       }
     } catch (error) {

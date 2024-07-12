@@ -52,7 +52,7 @@ function App() {
        
        <Route path="/" element={<MainPage />} />
        <Route path="/Authorization" element={<Authorization setUser={setUser} />} />
-       <Route path="/Registration" element={<Registration setUser={setUser} />} />
+       <Route path="/Registration" element={<Registration />} />
        <Route path="/profile" element={<Profile user={user}/>} />
        <Route path="/cats" element={<Cats user={user}/>} />
        <Route path="/targets" element={<Targets user={user}/>} />

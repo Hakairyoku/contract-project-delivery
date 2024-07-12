@@ -66,7 +66,7 @@ setUser(data.user);
 
   return (
     <div>
-      <h1>RegIn</h1>
+      <h1>Регистрация</h1>
       <form className='auth' onSubmit={onHandleSubmit}>
         <label htmlFor='name'>
           <input
@@ -106,14 +106,14 @@ setUser(data.user);
         </label>
         <label htmlFor='role'>
         <select name="select" onChange={(e) => setRole(e.target.value)}>
-        <option value={false} selected>volshebnick</option>
-        <option value={true}>hunter</option>
+        <option value={false} selected>Волшебник</option>
+        <option value={true}>Охотник</option>
 
         </select>
         </label>
         <span>{error && <p>{error}</p>}</span>
         <button type='submit'>
-          GO
+          Пошли ловить котика?
         </button>
       </form>
     </div>

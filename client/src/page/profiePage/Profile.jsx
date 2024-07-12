@@ -28,6 +28,9 @@ function Profile({ user }) {
         {role === 'mage' && <Link to="/cats">Cats Page</Link>}
         {role === 'hunter' && <Link to="/targets">Targets Page</Link>}
       </div>
+      <div>
+        
+      </div>
     </div>
   );
 }
